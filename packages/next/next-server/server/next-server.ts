@@ -461,8 +461,9 @@ export default class Server {
       return await this.run(req, res, parsedUrl)
     } catch (err) {
       this.logError(err)
-      res.statusCode = 500
-      res.end('Internal Server Error')
+      // res.statusCode = 500
+      // res.end('Internal Server Error')
+      throw new Error(err.message)
     }
   }
 
